@@ -3,11 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <title>django react cdn</title>
 </head>
 <body>
     <h1>Hello, world</h1>
-
+    <div id="root"></div>
 </body>
-<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+ <script type="text/babel">
+     const useState = React.useState;
+    const useEffect = React.useEffect;
+    const App = () => {
+
+    const [state, setState] = useState(0)
+
+    const handleClick = () => setState(state + 1)
+
+      return (
+        <div>
+          カウント: {state}
+          <div>
+            <button onClick={handleClick}>count up</button>
+          </div>
+        </div>
+      )
+    }
+
+const container = document.getElementById("root");
+const root = ReactDOM.createRoot(container);
+root.render(<App />);
+ </script>
 </html>
